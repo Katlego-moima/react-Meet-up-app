@@ -1,8 +1,13 @@
 import { Link } from 'react-router-dom';
 
+import classes from '../../styles/MainNavigation.module.css';
+
+
 function MainNavigation () {
-    return <header>
-<div>
+    return (
+    
+    <header className={classes.header}>
+<div className={classes.logo}>React Meetups</div>
 
     <nav>
         <ul>
@@ -11,10 +16,11 @@ function MainNavigation () {
             <li> <Link to='/favorites'>Favorites</Link> </li>
         </ul>
     </nav>
-</div>
+
 
 
         </header>
+    );
 }
 
 export default MainNavigation;
