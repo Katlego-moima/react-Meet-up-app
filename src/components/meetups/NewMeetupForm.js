@@ -1,30 +1,61 @@
 import Card from '../ui/Cards'
 import classes from './NewMeetupForm.module.css';
+import { useRef } from 'react';
+
+
 
 function NewMeetupForm () {
+    const titleInputRef = useRef();
+    const imageInputRef= useRef();
+    const addressInputRef= useRef();
+    const descInputRef= useRef();
+
+    function submitHandler(event) {
+        event.preventDefault();
+
+        const enteredTitle = titleInputRef.current.value;
+        const enteredImage = imageInputRef.current.value;
+        const enteredAddress = addressInputRef.current.value;
+        const enteredDesc = descInputRef.current.value;
+
+        const meetupData = {
+            title: enteredTitle,
+            image: enteredImage,
+            address: enteredAddress,
+            description: enteredDesc,
+        };
+
+        console.log(meetupData);
+
+    }
+
 
     return <Card>
 
-        <form className={classes.form}>
+        <form className={classes.form} onSubmit={submitHandler}>
 
             <div className={classes.control}>
                 <label htmlFor='title'>Meetup Title</label>
-                <input type='text' required id='title'/>
+                <input type='text' required id='title' ref={titleInputRef}/>
             </div>
 
             <div className={classes.control}>
                 <label htmlFor='title'>Meetup Image</label>
-                <input type='url' required id='image'/>
+                <input type='url' required id='image' ref={imageInputRef}/>
             </div>
 
             <div className={classes.control}>
                 <label htmlFor='address'>Address</label>
-                <input type='text' required id='address'/>
+                <input type='text' required id='address' ref={addressInputRef}/>
             </div>
 
             <div className={classes.control}>
-                <label htmlFor='description'>Meetup Title</label>
-                <textarea required id='description' rows='5'/>
+                <label htmlFor='description'>Meetup Description</label>
+                <textarea
+                 required 
+                 id='description'
+                  rows='5' 
+                  ref={descInputRef}/>
             </div>
 
             <div className={classes.actions}>
