@@ -1,10 +1,10 @@
-import classes from '../../components/ui/Card.module.css';
+import classes from '../ui/Card.module.css';
 
 
 
-function Card() {
-    return <div className={classes.card}></div>
-
+function Card(props) {
+    return <div className={classes.card}> {props.children}</div>
+    
 }
 
 export default Card;

@@ -4,12 +4,13 @@ import './App.css';
 import AllMeetupsPage from './pages/AllMeetups';
 import NewMeetupPage from './pages/NewMeetup';
 import FavoritesPage from './pages/Favorites';
-import MainNavigation from './components/layout/MainNavigation';
+import Layout from './components/layout/Layout';
+
 
 function App() {
   return (
-    <div>
-      <MainNavigation />
+    <Layout>
+      
       <Routes>
 
       <Route path='/' element={ <AllMeetupsPage />} />
@@ -19,7 +20,7 @@ function App() {
       <Route path='/favorites' element={ <FavoritesPage />} />
     
       </Routes>
-    </div>
+      </Layout>
   );
 }
 
